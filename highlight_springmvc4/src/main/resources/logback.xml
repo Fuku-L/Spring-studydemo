@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="1 seconds">
+
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
+    <!-- 将 org.springframework.web 包下的日志级别设置为 DEBUG -->
+    <!-- 开发 Spring MVC 经常会出现共和参数相关的 4XX 错误，设置此项可以看到详细的错误信息  -->
+    <jmxConfigurator>
+        <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>logbak: %d{HH:mm:ss.SSS} %logger{36} - %msg%n</pattern>
+            </encoder>
+        </appender>
+        <logger name="org.springframework.web" level="DEBUG"/>
+    </jmxConfigurator>
+
+    <root level="info">
+        <appender-ref ref="console"/>
+    </root>
+</configuration>
