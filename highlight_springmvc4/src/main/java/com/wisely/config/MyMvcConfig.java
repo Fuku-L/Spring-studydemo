@@ -1,9 +1,11 @@
 package com.wisely.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -25,12 +27,20 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         return viewResolver;
     }
 
-
-    // Srping MVC 的定制配置需要 MyMvcConfig 配置类继承 WebMvcConfigurerAdapter.
     // 静态资源映射
+    // Srping MVC 的定制配置需要 MyMvcConfig 配置类继承 WebMvcConfigurerAdapter.
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry){
         registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/assets/");
+    }
+
+    // 注册拦截器
+    @Autowired
+    DemoInterceptor demoInterceptor;
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(demoInterceptor);
     }
 
 }
