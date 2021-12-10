@@ -1,14 +1,18 @@
 package com.wisely.config;
 
+import com.wisely.messageConverter.MyMessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+
+import java.util.List;
 
 @Configuration
 @EnableWebMvc
@@ -48,6 +52,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/index").setViewName("/index");
         // 添加到 upload.jsp 的跳转
         registry.addViewController("/toUpload").setViewName("/upload");
+        registry.addViewController("/converter").setViewName("/converter");
     }
 
     // 修改路径匹配参数配置为：不忽略参数中“.”后面的内容
@@ -64,5 +69,15 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         // 设置文件上传编码为 UTF-8，否则保存的文件名称会出现中文乱码
         multipartResolver.setDefaultEncoding("UTF-8");
         return multipartResolver;
+    }
+
+    @Bean
+    public MyMessageConverter myMessageConverter(){
+        return new MyMessageConverter();
+    }
+
+    @Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.add(myMessageConverter());
     }
 }
