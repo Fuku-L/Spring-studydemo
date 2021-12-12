@@ -53,6 +53,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         // 添加到 upload.jsp 的跳转
         registry.addViewController("/toUpload").setViewName("/upload");
         registry.addViewController("/converter").setViewName("/converter");
+        registry.addViewController("/sse").setViewName("/sse");
     }
 
     // 修改路径匹配参数配置为：不忽略参数中“.”后面的内容
