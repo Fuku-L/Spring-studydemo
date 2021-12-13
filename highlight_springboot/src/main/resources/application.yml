@@ -5,9 +5,4 @@ book:
 
 spring:
   profiles:
-    active: animal
-
-logging:
-  level: debug
-  file:
-    path: D:\mylog\log.log
+    active: prod

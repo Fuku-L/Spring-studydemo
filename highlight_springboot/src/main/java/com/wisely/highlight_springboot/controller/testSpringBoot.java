@@ -1,6 +1,5 @@
 package com.wisely.highlight_springboot.controller;
 
-import com.wisely.highlight_springboot.Inject.Animal;
 import com.wisely.highlight_springboot.Inject.Author;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +28,6 @@ public class testSpringBoot {
 
     /**
      * 新建 application-animal.yml 文件，然后在 application.yml 中开启该属性文件
-     * */
     @Autowired
     Animal animal;
 
@@ -37,4 +35,5 @@ public class testSpringBoot {
     String animal(){
         return animal.getType() + " -- " + animal.getFood();
     }
+     * */
 }
