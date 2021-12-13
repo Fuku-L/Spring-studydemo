@@ -2,3 +2,7 @@ book:
   author: wangyufei
   name: abandan springboot
 
+
+spring:
+  profiles:
+    active: animal
