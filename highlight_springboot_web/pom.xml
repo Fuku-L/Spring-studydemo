@@ -22,7 +22,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.3.0.RELEASE</version>
         </dependency>
-        <!-- thymeleaf 依赖自动包含了 spring-web 依赖 -->
+        <!-- thymeleaf 依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
