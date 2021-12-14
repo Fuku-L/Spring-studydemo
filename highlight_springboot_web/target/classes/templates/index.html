@@ -3,6 +3,7 @@
     <meta content="text/html;charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" th:href="@{/public/favicon.ico}" type="image/x-icon"/>
     <link th:href="@{bootstrap/css/bootstrap.css}" rel="stylesheet"/>
     <link th:href="@{bootstrap/css/bootstrap-theme.css}" rel="stylesheet"/>
 </head>
@@ -15,41 +16,41 @@
     <div class="panel-body">
         <span th:text="${singlePerson.name}"></span>
     </div>
+</div>
 
-    <div th:if="${not #lists.isEmpty(people)}">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">列表</h3>
-            </div>
-            <div class="panel-body">
-                <ul class="list-group">
-                    <li class="list-group-item" th:each="person:${people}">
-                        <span th:text="${person.name}"></span>
-                        <span th:text="${person.age}"></span>
-                        <!--<button class="btn" th:onclick="'getName(\''+${person.name}+'\');'">获得名字</button>-->
-                        <!--
-                        Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Only variable expressions returning
-                        添加点击事件时出现了问题,报错日志说是参数只允许数值或布尔，如果所以用字符串类型使用 [[${变量}}]] 的形式。
-                        -->
-                        <button class="btn" th:onclick="getName([[${person.name}]])">获得名字</button>
-                    </li>
-                </ul>
-            </div>
+<div th:if="${not #lists.isEmpty(people)}">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">列表</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item" th:each="person:${people}">
+                    <span th:text="${person.name}"></span>
+                    <span th:text="${person.age}"></span>
+                    <!--<button class="btn" th:onclick="'getName(\''+${person.name}+'\');'">获得名字</button>-->
+                    <!--
+                    Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Only variable expressions returning
+                    添加点击事件时出现了问题,报错日志说是参数只允许数值或布尔，如果所以用字符串类型使用 方括号+大括号 形式， 注释内不能使用下面的方式会被解析。
+                    -->
+                    <button class="btn" th:onclick="getName([[${person.name}]])">获得名字</button>
+                </li>
+            </ul>
         </div>
     </div>
-
-    <script th:src="@{jquery.min.js}" type="text/javascript"></script>
-    <script th:src="@{bootstrap/js/bootstrap.js}"></script>
-    <script th:inline="javascript">
-        var single=[[${singlePerson}]];
-        console.log(single.name+"/"+single.age);
-
-        function getName(name){
-            console.log(name);
-        }
-    </script>
-
 </div>
+
+<script th:src="@{jquery.min.js}" type="text/javascript"></script>
+<script th:src="@{bootstrap/js/bootstrap.js}"></script>
+<script th:inline="javascript">
+    var single = [[${singlePerson}]];
+    console.log(single.name + "/" + single.age);
+
+    function getName(name) {
+        console.log(name);
+    }
+</script>
+
 
 </body>
 </html>
