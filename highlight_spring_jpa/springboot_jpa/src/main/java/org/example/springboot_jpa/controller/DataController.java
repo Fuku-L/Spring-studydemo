@@ -13,6 +13,12 @@ import java.util.List;
 
 @RestController
 public class DataController {
+    
+    @RequestMapping("/auto")
+    public Page<Person> auto(Person person){
+        Page<Person> pagePeople = personRepository.findByAuto(person,new PageRequest(0,10));
+        return pagePeople;
+    }
 
     // SpringDataJpa 已经注册bean。不需要自己写配置
     @Autowired
