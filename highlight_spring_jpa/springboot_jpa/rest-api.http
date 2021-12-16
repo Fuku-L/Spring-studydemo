@@ -1,0 +1,46 @@
+GET http://localhost:8080/save?name=op&address=湖北&age=40
+Accept: */*
+Cache-Control: no-cache
+
+
+###
+
+GET http://localhost:8080/q1?address=合肥
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET http://localhost:8080/q2?address=合肥&name=xx
+Accept: */*
+Cache-Control: no-cache
+
+
+###
+
+GET http://localhost:8080/q3?address=合肥&name=xx
+Accept: */*
+Cache-Control: no-cache
+
+
+###
+
+GET http://localhost:8080/q3?address=合肥&name=xx
+Accept: */*
+Cache-Control: no-cache
+
+
+###
+
+GET http://localhost:8080/sort
+Accept: */*
+Cache-Control: no-cache
+
+
+###
+
+GET http://localhost:8080/page
+Accept: */*
+Cache-Control: no-cache
+
+
