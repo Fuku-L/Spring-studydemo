@@ -17,6 +17,15 @@ begin
     end if;
 end;
 
+create table person
+(
+    id number(19) not null
+        constraint PERSON_PK
+            primary key,
+    name varchar2(10),
+    age int,
+    address varchar2(50)
+);
 create sequence hibernate_sequence
     minvalue 0;
 
