@@ -1,0 +1,42 @@
+
+###
+GET http://localhost:8080/api/people?sort=age,desc
+
+###
+
+GET http://localhost:8080/api/people/1
+
+###
+
+GET http://localhost:8080/api/people/search/nameStartsWith?name=b
+
+###
+
+GET http://localhost:8080/api/people/?page=1&size=3
+
+###
+
+GET http://localhost:8080/api/people
+
+###
+
+POST http://localhost:8080/api/people
+Content-Type: application/json
+
+{"name":"cc", "address":"成都","age":24}
+
+###
+
+PUT http://localhost:8080/api/people/21
+Content-Type: application/json
+
+{"name":"cc", "address":"成都","age":50}
+
+###
+
+DELETE http://localhost:8080/api/people/21
+
+###
+
+DELETE http://localhost:8080/api/people/21
+
