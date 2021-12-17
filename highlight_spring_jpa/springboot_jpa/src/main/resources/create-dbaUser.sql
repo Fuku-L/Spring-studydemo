@@ -15,7 +15,7 @@ alter user boot identified by boot; -- 修改密码
 select * from USER_SYS_PRIVS;
 
 --
-grant select,resource,dba to boot;
+grant resource,dba to boot;
 -- 授权
 grant connect to boot;
 grant Resource to boot;
