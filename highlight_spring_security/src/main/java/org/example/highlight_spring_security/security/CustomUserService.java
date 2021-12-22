@@ -19,11 +19,11 @@ public class CustomUserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         System.out.println("username："+username);
         SysUser user = sysUserRepository.findByUsername(username);
-        System.out.println("user"+user.toString());
         if (user == null) {
             throw new UsernameNotFoundException("用户名不存在");
         }
         user.setRoles(sysRoleRepository.findAllById(user.getId()));
+        System.out.println("user.getRoles()--"+user.getRoles());
         return user;
     }
 }

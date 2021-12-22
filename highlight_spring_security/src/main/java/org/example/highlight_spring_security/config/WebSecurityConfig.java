@@ -44,6 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()// 登录页面可以任意访问
                     .loginPage("/login")
                     .permitAll()
+                .successForwardUrl("/home")
                 .and()
                 .logout().permitAll(); // 注销请求可以任意访问
     }

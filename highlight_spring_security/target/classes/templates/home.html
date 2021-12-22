@@ -1,11 +1,13 @@
-<html xmlns:th="http://www.thymeleaf.org"
-xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<!DOCTYPE>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta content="text/html;charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title sec:authentication="name"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet" type="text/html"/>
 </head>
 <style>
     body{
@@ -34,7 +36,6 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
     <div class="starter-template">
         <h1 th:text="${msg.title}"></h1>
         <p class="bg-primary" th:text="${msg.content}"></p>
-
         <div sec:authorize="hasRole('ROLE_ADMIN')">
             <p class="bg-info" th:text="${msg.etraInfo}"></p>
         </div>
